@@ -24,7 +24,7 @@ const Layout = () => {
             <MenuProvider>
                 <AlertBox />
                 <KeyboardProvider>
-                    <SystemBars style="dark" />
+                    <SystemBars style="light" />
                     <Stack
                         screenOptions={{
                             headerBackButtonDisplayMode: 'minimal',

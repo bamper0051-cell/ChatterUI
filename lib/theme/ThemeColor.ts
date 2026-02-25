@@ -336,5 +336,56 @@ export namespace DefaultColorSchemes {
         shadow: '#000000',
     }
 
-    export const schemes = [lavenderDark, lavenderLight, amoled, navyDark, hotPink, retroGreen]
+    export const matrixAI: ThemeColor = {
+        version: 1,
+        name: 'Matrix AI',
+        primary: {
+            _100: '#001a00',
+            _200: '#003300',
+            _300: '#004d00',
+            _400: '#006600',
+            _500: '#008000',
+            _600: '#00b300',
+            _700: '#00cc00',
+            _800: '#00e600',
+            _900: '#00ff00',
+        },
+        neutral: {
+            _100: '#000000',
+            _200: '#050f05',
+            _300: '#0a1a0a',
+            _400: '#0d260d',
+            _500: '#113311',
+            _600: '#1a4d1a',
+            _700: '#236623',
+            _800: '#2d802d',
+            _900: '#3a993a',
+        },
+        error: {
+            _100: '#2d0000',
+            _200: '#4d0000',
+            _300: '#660000',
+            _400: '#800000',
+            _500: '#b30000',
+            _600: '#cc0000',
+            _700: '#e60000',
+            _800: '#ff0000',
+            _900: '#ff4d4d',
+        },
+        text: {
+            _100: '#00ff00',
+            _200: '#00e600',
+            _300: '#00cc00',
+            _400: '#00b300',
+            _500: '#009900',
+            _600: '#007a00',
+            _700: '#005c00',
+            _800: '#003d00',
+            _900: '#001f00',
+        },
+        quote: '#00ff41',
+        shadow: '#00ff00',
+    }
+
+    export const schemes = [matrixAI, lavenderDark, lavenderLight, amoled, navyDark, hotPink, retroGreen]
 }

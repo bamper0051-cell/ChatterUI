@@ -1,4 +1,3 @@
-import SupportButton from '@components/buttons/SupportButton'
 import Drawer from '@components/views/Drawer'
 import { AppSettings } from '@lib/constants/GlobalValues'
 import { Theme } from '@lib/theme/ThemeManager'
@@ -12,7 +11,7 @@ import UserInfo from './UserInfo'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const SettingsDrawer: React.FC<{ useInset?: boolean }> = ({ useInset = false }) => {
-    const { color, spacing } = Theme.useTheme()
+    const { spacing } = Theme.useTheme()
     const insets = useSafeAreaInsets()
     const [devMode, _] = useMMKVBoolean(AppSettings.DevMode)
 
@@ -21,6 +20,9 @@ const SettingsDrawer: React.FC<{ useInset?: boolean }> = ({ useInset = false }) 
             drawerID={Drawer.ID.SETTINGS}
             drawerStyle={{
                 width: '60%',
+                backgroundColor: '#000d00',
+                borderRightWidth: 1,
+                borderRightColor: '#003300',
                 paddingBottom: spacing.xl + (useInset ? insets.bottom : 0),
             }}>
             <UserInfo />
@@ -29,17 +31,17 @@ const SettingsDrawer: React.FC<{ useInset?: boolean }> = ({ useInset = false }) 
             <Text
                 style={{
                     alignSelf: 'center',
-                    color: color.text._300,
+                    color: '#006600',
+                    fontFamily: 'monospace',
+                    fontSize: 11,
                     marginTop: spacing.l,
                     marginBottom: spacing.xl2,
+                    letterSpacing: 1,
                 }}>
-                {__DEV__ && 'DEV BUILD\t'}
-                {devMode && 'DEV MODE\t'}
-                {'v' + appConfig.expo.version}
+                {__DEV__ && 'DEV BUILD  '}
+                {devMode && 'DEV MODE  '}
+                {'Matrix AI v' + appConfig.expo.version}
             </Text>
-            <View style={{ marginHorizontal: spacing.xl2 }}>
-                <SupportButton />
-            </View>
         </Drawer.Body>
     )
 }

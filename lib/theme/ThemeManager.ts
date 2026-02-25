@@ -24,7 +24,7 @@ export namespace Theme {
     export const useColorState = create<ColorStateProps>()(
         persist(
             (set, get) => ({
-                color: DefaultColorSchemes.lavenderDark,
+                color: DefaultColorSchemes.matrixAI,
                 setColor: (color) => {
                     set((state) => ({ ...state, color: color }))
                 },

@@ -1,12 +1,12 @@
-import SupportButton from '@components/buttons/SupportButton'
 import ThemedButton from '@components/buttons/ThemedButton'
+import MatrixAIIcon from '@components/MatrixAIIcon'
 import HeaderTitle from '@components/views/HeaderTitle'
 import { AppSettings } from '@lib/constants/GlobalValues'
 import { Logger } from '@lib/state/Logger'
 import { Theme } from '@lib/theme/ThemeManager'
 import appConfig from 'app.config'
 import React, { useState } from 'react'
-import { Image, Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Linking, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useMMKVBoolean } from 'react-native-mmkv'
 
 const AboutScreen = () => {
@@ -18,7 +18,7 @@ const AboutScreen = () => {
     const updateCounter = () => {
         if (devMode) return
         if (counter === 6) {
-            Logger.infoToast(`You have enabled dev mode.`)
+            Logger.infoToast(`Режим разработчика активирован.`)
             setDevMode(true)
         }
         setCounter(counter + 1)
@@ -27,18 +27,19 @@ const AboutScreen = () => {
     const version = 'v' + appConfig.expo.version
     return (
         <View style={styles.container}>
-            <HeaderTitle title="About" />
+            <HeaderTitle title="О программе" />
             <TouchableOpacity activeOpacity={0.8} onPress={updateCounter}>
-                <Image source={require('../../assets/images/icon.png')} style={styles.icon} />
+                <MatrixAIIcon size={120} />
             </TouchableOpacity>
 
-            <Text style={styles.titleText}>ChatterUI</Text>
+            <Text style={styles.titleText}>Matrix AI</Text>
+            <Text style={styles.codeText}>{'// НЕЙРОСЕТЕВОЙ ИНТЕРФЕЙС'}</Text>
             <Text style={styles.subtitleText}>
-                Version {version} {devMode && '[DEV MODE]'}
+                Версия {version} {devMode && '[DEV MODE]'}
             </Text>
             {devMode && (
                 <ThemedButton
-                    label="Disable Dev Mode"
+                    label="Отключить режим разработчика"
                     variant="critical"
                     buttonStyle={{
                         marginTop: spacing.xl,
@@ -52,25 +53,19 @@ const AboutScreen = () => {
             )}
 
             <Text style={styles.body}>
-                ChatterUI is a free and open-source application developed by Vali-98
+                Matrix AI — мобильный фронтенд для языковых моделей с поддержкой локального и удалённого вывода.
             </Text>
             <Text style={{ marginBottom: spacing.xl3, ...styles.body }}>
-                This app is a passion project I develop in my free time. If you're enjoying the app,
-                consider supporting its development!
+                Поддерживаемые агенты: OpenAI · Grok · Claude · DeepSeek · Gemini
             </Text>
             <Text style={{ ...styles.body, marginBottom: spacing.m }}>
-                Donate to ChatterUI here:
+                На основе ChatterUI (open-source):
             </Text>
-
-            <SupportButton />
-
-            <Text style={styles.body}>Got an issue? Report it here:</Text>
-            <Text style={styles.subtitleText}>(Don't forget to add your Logs!)</Text>
 
             <ThemedButton
                 buttonStyle={{ marginTop: spacing.m }}
                 variant="secondary"
-                label="Github Repository"
+                label="Репозиторий GitHub"
                 iconName="github"
                 iconSize={20}
                 onPress={() => {
@@ -94,15 +89,23 @@ const useStyles = () => {
             alignItems: 'center',
             flex: 1,
         },
-        titleText: { color: color.text._100, fontSize: 32, marginTop: 16 },
-        subtitleText: { color: color.text._400 },
-        body: { color: color.text._100, marginTop: spacing.l, textAlign: 'center' },
-        icon: {
-            width: 120,
-            height: 120,
-            backgroundColor: 'black',
-            // eslint-disable-next-line internal/enforce-spacing-values
-            borderRadius: 60,
+        titleText: {
+            color: '#00ff00',
+            fontSize: 32,
+            marginTop: 16,
+            fontFamily: 'monospace',
+            textShadowColor: '#00ff00',
+            textShadowOffset: { width: 0, height: 0 },
+            textShadowRadius: 10,
         },
+        codeText: {
+            color: '#00aa00',
+            fontFamily: 'monospace',
+            fontSize: 12,
+            letterSpacing: 1,
+            marginTop: 4,
+        },
+        subtitleText: { color: color.text._400, fontFamily: 'monospace' },
+        body: { color: color.text._100, marginTop: spacing.l, textAlign: 'center' },
     })
 }

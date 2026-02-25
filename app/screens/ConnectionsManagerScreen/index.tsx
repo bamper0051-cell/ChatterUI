@@ -30,7 +30,7 @@ const ConnectionsManagerScreen = () => {
                 paddingBottom: spacing.xl2,
                 flex: 1,
             }}>
-            <HeaderTitle title="API Manager" />
+            <HeaderTitle title="API Менеджер" />
             <HeaderButton
                 headerRight={() => (
                     <Pressable

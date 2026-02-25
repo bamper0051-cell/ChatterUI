@@ -2,14 +2,14 @@ const IS_DEV = process.env.APP_VARIANT === 'development'
 
 module.exports = {
     expo: {
-        name: IS_DEV ? 'ChatterUI (DEV)' : 'ChatterUI',
+        name: IS_DEV ? 'Matrix AI (DEV)' : 'Matrix AI',
         newArchEnabled: true,
-        slug: 'ChatterUI',
-        version: '0.8.8',
+        slug: 'MatrixAI',
+        version: '1.0.0',
         orientation: 'default',
         icon: './assets/images/icon.png',
-        scheme: 'chatterui',
-        userInterfaceStyle: 'automatic',
+        scheme: 'matrixai',
+        userInterfaceStyle: 'dark',
         assetBundlePatterns: ['**/*'],
         ios: {
             icon: {
@@ -18,18 +18,18 @@ module.exports = {
                 tinted: './assets/images/icon.png',
             },
             supportsTablet: true,
-            package: IS_DEV ? 'com.Vali98.ChatterUIDev' : 'com.Vali98.ChatterUI',
-            bundleIdentifier: IS_DEV ? 'com.Vali98.ChatterUIDev' : 'com.Vali98.ChatterUI',
+            package: IS_DEV ? 'com.matrixai.dev' : 'com.matrixai.app',
+            bundleIdentifier: IS_DEV ? 'com.matrixai.dev' : 'com.matrixai.app',
         },
         android: {
             adaptiveIcon: {
                 foregroundImage: './assets/images/adaptive-icon-foreground.png',
                 backgroundImage: './assets/images//adaptive-icon-background.png',
                 monochromeImage: './assets/images/adaptive-icon-foreground.png',
-                backgroundColor: '#000',
+                backgroundColor: '#000000',
             },
             edgeToEdgeEnabled: true,
-            package: IS_DEV ? 'com.Vali98.ChatterUIDev' : 'com.Vali98.ChatterUI',
+            package: IS_DEV ? 'com.matrixai.dev' : 'com.matrixai.app',
             userInterfaceStyle: 'dark',
             permissions: [
                 'android.permission.FOREGROUND_SERVICE',

@@ -212,7 +212,7 @@ const AddConnection = () => {
                                 setValues({ ...values, firstMessage: value })
                             }}
                         />
-                        <Text style={styles.hintText}>Default first message sent to Claude</Text>
+                        <Text style={styles.hintText}>Первое сообщение, отправляемое агенту</Text>
                     </View>
                 )}
                 {template.features.usePrefill && (

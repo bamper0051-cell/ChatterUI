@@ -107,6 +107,11 @@ const getPaths = (remote: boolean): ButtonData[] => [
         icon: 'codesquareo',
     },
     {
+        name: 'AI Агенты',
+        path: '/screens/AIAgentsScreen',
+        icon: 'robot',
+    },
+    {
         name: 'About',
         path: '/screens/AboutScreen',
         icon: 'infocirlceo',
